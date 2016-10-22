@@ -1,0 +1,64 @@
+{
+  "layers": {
+    "hidden": 1
+  },
+  "computables": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "trainables": [
+    {
+      "input": [
+        0,
+        0
+      ],
+      "output": [
+        0
+      ]
+    },
+    {
+      "input": [
+        0,
+        1
+      ],
+      "output": [
+        0
+      ]
+    },
+    {
+      "input": [
+        1,
+        0
+      ],
+      "output": [
+        0
+      ]
+    },
+    {
+      "input": [
+        1,
+        1
+      ],
+      "output": [
+        1
+      ]
+    }
+  ],
+  "iterations": 10000,
+  "precision": 0.0001
+}
+
