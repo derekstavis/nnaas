@@ -1,0 +1,27 @@
+service: nnaas
+
+provider:
+  name: aws
+  stage: dev
+  region: us-east-1
+  runtime: nodejs4.3
+  memorySize: 128
+  timeout: 30
+  profile: ${self:custom.currentVars.profile}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "lambda:InvokeFunction"
+      Resource: "*"
+
+custom: ${file(./serverless.vars.yml)}
+
+functions:
+  compute:
+    handler: compute/index.handler
+    events: 
+      - http:
+          path: compute
+          method: post
+          cors: ${self:custom.currentVars.cors}
+

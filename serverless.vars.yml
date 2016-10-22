@@ -1,0 +1,12 @@
+default:
+  profile: default
+  authorizationHeader: method.request.header.Authorization
+  webpackConfigFile: webpack.local.config.js
+  CorsOrigins: 
+    - '*'
+currentStage: ${opt:stage, self:provider.stage}
+currentVars:
+  CorsOrigins: ${self:custom.stages.${self:custom.currentStage}.CorsOrigins, self:custom.default.CorsOrigins}
+  profile: ${self:custom.stages.${self:custom.currentStage}.profile, self:custom.default.profile}
+  cors:
+    origins: ${self:custom.currentVars.CorsOrigins}
